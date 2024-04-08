@@ -7,11 +7,11 @@
 /*!
  * \brief заглушка шифродешифровщика, не делает ничего, нужна для дебага и amacriminal нешифрованного общения.
  */
-class StubCrypter : public BaseEncoderExecutor
+class StubCrypter : public BaseEncoderExecutor final
 {
 public:
     StubCrypter() = default;
-    ~StubCrypter() = default;
+    // ~StubCrypter() = default;
     /*!
      * \brief Метод как бы шифровки.
      * \param input -  строка

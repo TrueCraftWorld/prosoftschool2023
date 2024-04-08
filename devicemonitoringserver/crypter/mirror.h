@@ -7,11 +7,11 @@
 /*!
  * \brief заглушка шифродешифровщика, не делает ничего, нужна для дебага и amacriminal нешифрованного общения.
  */
-class MirrorCrypter : public BaseEncoderExecutor 
+class MirrorCrypter : public BaseEncoderExecutor final
 {
 public:
     MirrorCrypter() = default;
-    ~MirrorCrypter() = default;
+    // ~MirrorCrypter() = default;
     /*!
      * \brief Метод шифровки сменой порядка десятичных разрядов кажого числа в сообщении.
      * \param input -  строка

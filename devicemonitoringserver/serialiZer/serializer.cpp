@@ -10,7 +10,13 @@ MessageBase DeSerializer::ToMessage(const std::string& messageStr) {
     std::string stage; // presumably got msgType
     stringy >> stage;
     MessageBase messageStruct{MsgType::Meterage, {0,0}, ErrType::NoErr, 0}; 
-    MsgType type = static_cast<MsgType>(std::stoul(stage));
+    unsigned long typeCheck = std::stoul(stage);
+    if (typeCheck >= MsgType::Meterage && typeCheck <= MsgType::None)
+        MsgType type = static_cast<MsgType>(std::stoul(stage));
+    else {
+        messageStruct.MessageType = MsgType::Error;
+        return messageStruct
+    }
     messageStruct.MessageType = type;
     switch (type)
     {
@@ -56,6 +62,5 @@ std::string DeSerializer::ToBytesArray(const MessageBase& message){
         stringy << std::endl;
         break;
     };
-    std::string res = stringy.str();
-    return res;
+    return stringy.str();
 }

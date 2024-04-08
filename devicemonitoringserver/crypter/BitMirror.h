@@ -7,11 +7,11 @@
 /*!
  * \brief заглушка шифродешифровщика, не делает ничего, нужна для дебага и amacriminal нешифрованного общения.
  */
-class BitMirrorCrypter : public BaseEncoderExecutor 
+class BitMirrorCrypter : public BaseEncoderExecutor final
 {
 public:
     BitMirrorCrypter() = default;
-    ~BitMirrorCrypter() = default;
+    // ~BitMirrorCrypter() = default;
     /*!
      * \brief Метод как бы шифровки.
      * \param input -  строка
@@ -34,6 +34,12 @@ private:
      * \retval "Отзеркаленная" строка
      */
     std::string reflect(const std::string& input) const;
+    /*!
+     * \brief побитовое отзеркаливание байта
+     * \param input -входящая строка
+     * \retval "Отзеркаленная" строка
+     */
+    unsigned int bitReflect(const unsigned int symbol) const;
 };
 
 #endif // BITMIRROCRYPTER_H

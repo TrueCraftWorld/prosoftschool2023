@@ -12,27 +12,28 @@ Encoder::~Encoder(){
     if (!m_crypterMap.empty()) {
         std::map<std::string, BaseEncoderExecutor*>::iterator iter = m_crypterMap.begin();
 
-        while (iter != m_crypterMap.end())
-        {
-            if (iter->second != nullptr)
-                delete iter->second;
-            iter++;
+        // while (iter != m_crypterMap.end())
+        // {
+        //     // if (iter->second != nullptr)
+        //         delete iter->second;
+        //     iter++;
+        // }
+        for (const auto& [_, crypter] : map) {
+            delete crypter;
         }
     }
 }
 
-const std::string Encoder::decode(const std::string& message){
+std::string Encoder::decode(const std::string& message) const{
     return m_curr_Crypter->decode(message); 
 }
 
-const std::string Encoder::encode(const std::string& message){
-    
+std::string Encoder::encode(const std::string& message) const{
     return m_curr_Crypter->encode(message);
 }
 
 bool Encoder::crypterExist(const std::string& name) {
-    if (m_crypterMap.find(name) == m_crypterMap.end()) return false;
-    return true;
+    return (m_crypterMap.find(name) != m_crypterMap.end());
 }
 
 bool Encoder::setCurrentCrypter (const std::string& name)

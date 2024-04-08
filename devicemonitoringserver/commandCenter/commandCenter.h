@@ -22,6 +22,10 @@ class CommandCenter {
 
 public:
     /*!
+    */
+    void ~CommandCenter();
+
+    /*!
      * \brief Приём нового сообщения для обработки.
      * \param deviceId - идентификатор устройства
      * \param messageStruct - сообщение уже "разобранное" в структуру
@@ -51,7 +55,7 @@ public:
     bool removeDevice(uint64_t deviceId);
 
 private:
-    std::map<uint64_t, DeviceInfo*> mapOfDevices; 
+    std::map<uint64_t, DeviceInfo*> m_mapOfDevices; 
     double getRMSD(uint64_t deviceId, uint8_t newValue);
 };
 

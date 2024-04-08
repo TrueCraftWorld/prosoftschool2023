@@ -24,14 +24,14 @@ public:
      * \param message - зашифрованная строка сообщения
      * \retval дешифрованная строка сообщения
      */
-    const std::string decode(const std::string& message) ;
+    std::string decode(const std::string& message) const;
 
     /*!
      * \brief Шифрование строки текущим методом шифрования
      * \param message - дешифрованная строка сообщения
      * \retval зашифрованная строка сообщения 
      */
-    const std::string encode(const std::string& message) ;
+    std::string encode(const std::string& message) const;
 
     /*!
      * \brief проверка существования какого либо метода шифровка по его названию

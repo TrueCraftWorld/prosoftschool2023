@@ -7,11 +7,11 @@
 /*!
  * \brief шифр цезаря - смещаем каждый символ на 3 и обратно. Наивная реалиция - нет фильтрации служебных символов т.к. знаем что все данные цифры.
  */
-class ROT3Crypter : public BaseEncoderExecutor
+class ROT3Crypter : public BaseEncoderExecutor final
 {
 public:
     ROT3Crypter() = default;
-    ~ROT3Crypter() = default;
+    // ~ROT3Crypter() = default;
     /*!
      * \brief Метод шифровки - смещение на +3 .
      * \param input -  строка

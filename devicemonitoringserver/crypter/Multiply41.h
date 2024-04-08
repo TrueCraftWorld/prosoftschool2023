@@ -7,11 +7,11 @@
 /*!
  * \brief Умножение на 41 - каждый чар превращается в 2 байта. .
  */
-class Multiply41Crypter : public BaseEncoderExecutor
+class Multiply41Crypter : public BaseEncoderExecutor final
 {
 public:
     Multiply41Crypter() = default;
-    ~Multiply41Crypter() = default;
+    // ~Multiply41Crypter() = default;
     /*!
      * \brief Метод шифровки - умножение.
      * \param input -  строка
